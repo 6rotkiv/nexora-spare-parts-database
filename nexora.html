@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexora</title>
-<meta name="author" content="rotkiv">
-<meta name="description" content="Nexora Termékadatbázis —  belső eszköz. Fejlesztette: Rotkiv">
+<meta name="author" content="developer">
+<meta name="description" content="Nexora Parts Database — Internal Tool">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
@@ -111,8 +111,6 @@ header{display:flex;align-items:center;justify-content:space-between;
 .dash-title{font-family:var(--font-head);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;
   letter-spacing:-.04em;margin-bottom:6px}
 .dash-sub{color:var(--muted2);font-size:.9rem;font-weight:300;margin-bottom:36px}
-
-/* Stat cards row */
 .stat-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:40px}
 .stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
   padding:22px 20px;position:relative;overflow:hidden;transition:all var(--tr)}
@@ -129,8 +127,6 @@ header{display:flex;align-items:center;justify-content:space-between;
 .stat-num{font-family:var(--font-head);font-size:2.2rem;font-weight:800;line-height:1;margin-bottom:4px;letter-spacing:-.04em}
 .stat-label{font-size:.75rem;color:var(--muted2);text-transform:uppercase;letter-spacing:.08em}
 .stat-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:2rem;opacity:.15}
-
-/* Category bar chart */
 .dash-section{margin-bottom:40px}
 .dash-section-title{font-family:var(--font-head);font-size:1rem;font-weight:700;
   letter-spacing:-.02em;margin-bottom:18px;display:flex;align-items:center;gap:10px}
@@ -141,12 +137,9 @@ header{display:flex;align-items:center;justify-content:space-between;
 .cat-bar-track{height:8px;border-radius:99px;background:rgba(255,255,255,.05);overflow:hidden}
 .cat-bar-fill{height:100%;border-radius:99px;transition:width .8s cubic-bezier(.4,0,.2,1)}
 .cat-bar-count{font-size:.78rem;font-weight:700;color:var(--muted2)}
-
-/* Recent products */
 .recent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .recent-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:16px;display:flex;gap:14px;align-items:center;
-  transition:all var(--tr);cursor:pointer}
+  padding:16px;display:flex;gap:14px;align-items:center;transition:all var(--tr);cursor:pointer}
 .recent-card:hover{border-color:rgba(74,120,255,.3);background:var(--card-hover);transform:translateX(4px)}
 .recent-thumb{width:52px;height:52px;border-radius:10px;background:#0c0c1e;
   flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
@@ -168,8 +161,6 @@ header{display:flex;align-items:center;justify-content:space-between;
   font-weight:800;line-height:1.1;letter-spacing:-.04em;margin-bottom:10px}
 .hero h1 span{color:#6a9eff}
 .hero p{color:var(--muted2);font-size:.93rem;font-weight:300;max-width:500px;line-height:1.65}
-
-/* ── GLASS SEARCH BAR (iPhone style) ── */
 .search-outer{position:relative;max-width:660px;margin-bottom:10px}
 .search-glass{
   display:flex;align-items:center;gap:0;
@@ -179,98 +170,53 @@ header{display:flex;align-items:center;justify-content:space-between;
   border:1px solid rgba(255,255,255,.12);
   border-radius:18px;
   box-shadow:0 4px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);
-  overflow:hidden;
-  transition:all .3s ease;
+  overflow:hidden;transition:all .3s ease;
 }
 .search-glass:focus-within{
   background:rgba(255,255,255,.08);
   border-color:rgba(74,120,255,.5);
   box-shadow:0 6px 32px rgba(0,0,0,.5),0 0 0 3px rgba(74,120,255,.12),inset 0 1px 0 rgba(255,255,255,.1);
 }
-.search-glass-icon{
-  padding:0 14px 0 18px;color:rgba(255,255,255,.35);font-size:1rem;flex-shrink:0;
-  transition:color .2s;
-}
+.search-glass-icon{padding:0 14px 0 18px;color:rgba(255,255,255,.35);font-size:1rem;flex-shrink:0;transition:color .2s;}
 .search-glass:focus-within .search-glass-icon{color:#6a9eff}
-#searchInput{
-  flex:1;padding:15px 4px;
-  background:transparent;border:none;outline:none;
-  color:var(--text);font-size:.97rem;font-weight:400;
-}
+#searchInput{flex:1;padding:15px 4px;background:transparent;border:none;outline:none;color:var(--text);font-size:.97rem;font-weight:400;}
 #searchInput::placeholder{color:rgba(255,255,255,.28)}
-.search-glass-clear{
-  padding:0 16px;color:rgba(255,255,255,.3);font-size:.8rem;
-  opacity:0;pointer-events:none;transition:opacity .2s;
-  width:40px;display:flex;align-items:center;justify-content:center;
-}
+.search-glass-clear{padding:0 16px;color:rgba(255,255,255,.3);font-size:.8rem;opacity:0;pointer-events:none;transition:opacity .2s;width:40px;display:flex;align-items:center;justify-content:center;}
 .search-glass-clear.visible{opacity:1;pointer-events:all}
 .search-glass-clear:hover{color:rgba(255,255,255,.7)}
-
 .search-stats{font-size:.79rem;color:var(--muted);height:20px;margin-bottom:16px}
 .search-stats mark{background:none;color:#6a9eff;font-weight:500}
-
-/* ── CATEGORY TABS ── */
-.cat-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:30px;
-  border-bottom:1px solid var(--border);padding-bottom:14px}
-.cat-tab{padding:6px 15px;border-radius:99px;border:1px solid transparent;
-  font-size:.78rem;font-weight:600;color:var(--muted);
-  background:transparent;letter-spacing:.02em;transition:all var(--tr);white-space:nowrap}
+.cat-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:30px;border-bottom:1px solid var(--border);padding-bottom:14px}
+.cat-tab{padding:6px 15px;border-radius:99px;border:1px solid transparent;font-size:.78rem;font-weight:600;color:var(--muted);background:transparent;letter-spacing:.02em;transition:all var(--tr);white-space:nowrap}
 .cat-tab:hover{color:var(--text);border-color:var(--border)}
-.cat-tab[data-cat="Összes"].active{background:rgba(74,120,255,.1);color:#6a9eff;border-color:rgba(74,120,255,.3)}
-.cat-tab[data-cat="FLS"].active{background:rgba(246,173,85,.15);color:var(--accent2);border-color:rgba(246,173,85,.35)}
-.cat-tab[data-cat="ISRA"].active{background:rgba(74,120,255,.15);color:#6a9eff;border-color:rgba(74,120,255,.4)}
-.cat-tab[data-cat="FANUC"].active{background:rgba(252,129,129,.12);color:var(--red);border-color:rgba(252,129,129,.3)}
-.cat-tab[data-cat="SZATELIT"].active{background:rgba(104,211,145,.1);color:var(--accent3);border-color:rgba(104,211,145,.3)}
-.cat-tab[data-cat="TOOLCHANGER"].active{background:rgba(159,122,234,.12);color:#b794f4;border-color:rgba(159,122,234,.3)}
-.cat-tab[data-cat="DRESSPACK"].active{background:rgba(237,137,54,.12);color:#ed8936;border-color:rgba(237,137,54,.3)}
-
-/* ── GRID ── */
+.cat-tab[data-cat="All"].active{background:rgba(74,120,255,.1);color:#6a9eff;border-color:rgba(74,120,255,.3)}
 #resultsGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
-
-/* ── SKELETON LOADING ── */
 .skeleton-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;animation:cardIn .3s ease both}
 .skel-img{height:180px;background:linear-gradient(90deg,#0f0f1e 25%,#181830 50%,#0f0f1e 75%);background-size:200% 100%;animation:shimmer 1.6s infinite}
 .skel-body{padding:18px}
 .skel-line{height:10px;border-radius:5px;margin-bottom:10px;background:linear-gradient(90deg,#0f0f1e 25%,#181830 50%,#0f0f1e 75%);background-size:200% 100%;animation:shimmer 1.6s infinite}
-.skel-line.w60{width:60%}
-.skel-line.w80{width:80%}
-.skel-line.w40{width:40%}
-.skel-line.h14{height:14px}
+.skel-line.w60{width:60%}.skel-line.w80{width:80%}.skel-line.w40{width:40%}.skel-line.h14{height:14px}
 .skel-footer{height:44px;border-top:1px solid var(--border);background:linear-gradient(90deg,#0f0f1e 25%,#181830 50%,#0f0f1e 75%);background-size:200% 100%;animation:shimmer 1.6s infinite}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 @keyframes cardIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
-
-/* ── PRODUCT CARD ── */
-.product-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  overflow:hidden;cursor:none;transition:transform var(--tr),border-color var(--tr),box-shadow var(--tr);
-  animation:cardIn .3s ease both}
-.product-card:hover{transform:translateY(-4px);border-color:rgba(74,120,255,.35);
-  box-shadow:0 12px 40px rgba(0,0,0,.5),var(--glow);background:var(--card-hover)}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:none;transition:transform var(--tr),border-color var(--tr),box-shadow var(--tr);animation:cardIn .3s ease both}
+.product-card:hover{transform:translateY(-4px);border-color:rgba(74,120,255,.35);box-shadow:0 12px 40px rgba(0,0,0,.5),var(--glow);background:var(--card-hover)}
 .card-img-wrap{position:relative;overflow:hidden;height:180px;background:#0c0c1e}
 .card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;filter:brightness(.9)}
 .product-card:hover .card-img-wrap img{transform:scale(1.06)}
 .card-no-img{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:var(--muted);background:#0c0c1e}
-.cat-badge{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:99px;
-  font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(8px)}
-.badge-FLS{background:rgba(246,173,85,.2);color:var(--accent2);border:1px solid rgba(246,173,85,.4)}
-.badge-ISRA{background:rgba(74,120,255,.18);color:#6a9eff;border:1px solid rgba(74,120,255,.4)}
-.badge-FANUC{background:rgba(252,129,129,.15);color:var(--red);border:1px solid rgba(252,129,129,.35)}
-.badge-SZATELIT{background:rgba(104,211,145,.15);color:var(--accent3);border:1px solid rgba(104,211,145,.35)}
-.badge-TOOLCHANGER{background:rgba(159,122,234,.15);color:#b794f4;border:1px solid rgba(159,122,234,.35)}
-.badge-DRESSPACK{background:rgba(237,137,54,.15);color:#ed8936;border:1px solid rgba(237,137,54,.35)}
-.note-dot{position:absolute;top:10px;right:10px;width:8px;height:8px;border-radius:50%;
-  background:#f6ad55;box-shadow:0 0 8px #f6ad55;animation:pulse 2s ease-in-out infinite}
+.cat-badge{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:99px;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(8px)}
+.note-dot{position:absolute;top:10px;right:10px;width:8px;height:8px;border-radius:50%;background:#f6ad55;box-shadow:0 0 8px #f6ad55;animation:pulse 2s ease-in-out infinite}
 .card-body{padding:18px}
 .card-ids{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:7px}
 .card-part{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#6a9eff;display:flex;align-items:center;gap:4px}
 .card-bemi{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);display:flex;align-items:center;gap:4px}
 .card-part::before{content:'#'}
-.card-bemi::before{content:'BEM:';color:var(--muted);font-size:.65rem}
+.card-bemi::before{content:'REF:';color:var(--muted);font-size:.65rem}
 .card-name{font-family:var(--font-head);font-size:1rem;font-weight:700;line-height:1.3;margin-bottom:9px;letter-spacing:-.02em}
 .card-desc{font-size:.82rem;color:var(--muted2);line-height:1.55;font-weight:300;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-footer{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 16px;border-top:1px solid var(--border)}
-.card-arrow{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--muted);transition:all var(--tr)}
+.card-arrow{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--muted);transition:all var(--tr)}
 .product-card:hover .card-arrow{border-color:#4a78ff;color:#6a9eff;background:rgba(74,120,255,.1)}
 .user-badge{font-size:.65rem;color:var(--muted);background:rgba(255,255,255,.05);padding:2px 7px;border-radius:99px;border:1px solid var(--border)}
 mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0 2px}
@@ -284,19 +230,16 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
    DETAIL PAGE
 ═══════════════════════════════════════════ */
 #detailPage .inner{padding:32px 40px 80px;max-width:1360px;margin:0 auto}
-.back-btn{display:inline-flex;align-items:center;gap:9px;color:var(--muted2);
-  font-size:.85rem;font-weight:500;padding:10px 0;margin-bottom:32px;transition:color var(--tr)}
+.back-btn{display:inline-flex;align-items:center;gap:9px;color:var(--muted2);font-size:.85rem;font-weight:500;padding:10px 0;margin-bottom:32px;transition:color var(--tr)}
 .back-btn:hover{color:#6a9eff}
 .back-btn svg{transition:transform var(--tr)}
 .back-btn:hover svg{transform:translateX(-3px)}
 .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:56px}
-.detail-img-wrap{position:relative;border-radius:var(--radius);overflow:hidden;
-  background:var(--card);border:1px solid var(--border);aspect-ratio:4/3;cursor:none}
+.detail-img-wrap{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--card);border:1px solid var(--border);aspect-ratio:4/3;cursor:none}
 .detail-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .detail-img-wrap:hover img{transform:scale(1.04)}
 .detail-no-img{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem;color:var(--muted)}
-.zoom-hint{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);
-  border:1px solid var(--border);border-radius:var(--rsm);padding:4px 10px;font-size:.7rem;color:var(--muted2);display:none;align-items:center;gap:5px}
+.zoom-hint{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:var(--rsm);padding:4px 10px;font-size:.7rem;color:var(--muted2);display:none;align-items:center;gap:5px}
 .detail-info{display:flex;flex-direction:column;gap:20px}
 .detail-breadcrumb{font-size:.73rem;color:var(--muted);display:flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.06em}
 .detail-breadcrumb span{color:var(--muted2)}
@@ -314,29 +257,21 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
 .meta-item{background:var(--card);border:1px solid var(--border);border-radius:var(--rsm);padding:12px 14px}
 .meta-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:3px}
 .meta-value{font-size:.88rem;font-weight:500;color:var(--text)}
-
-/* ── NOTES SECTION ── */
 .notes-section{margin-top:4px}
 .notes-label{font-size:.73rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:8px}
 .notes-label span{font-size:.65rem;background:rgba(246,173,85,.15);color:var(--accent2);padding:2px 8px;border-radius:99px;border:1px solid rgba(246,173,85,.3)}
-.notes-textarea{width:100%;background:rgba(0,0,0,.3);border:1.5px solid var(--border);border-radius:var(--rsm);
-  color:var(--text);padding:12px 14px;font-size:.88rem;resize:vertical;min-height:90px;outline:none;line-height:1.6;
-  transition:border-color var(--tr);backdrop-filter:blur(4px)}
+.notes-textarea{width:100%;background:rgba(0,0,0,.3);border:1.5px solid var(--border);border-radius:var(--rsm);color:var(--text);padding:12px 14px;font-size:.88rem;resize:vertical;min-height:90px;outline:none;line-height:1.6;transition:border-color var(--tr);backdrop-filter:blur(4px)}
 .notes-textarea:focus{border-color:rgba(246,173,85,.4)}
 .notes-textarea::placeholder{color:var(--muted)}
-.notes-save-btn{margin-top:8px;padding:7px 18px;border-radius:var(--rsm);
-  background:rgba(246,173,85,.12);border:1px solid rgba(246,173,85,.3);
-  color:var(--accent2);font-size:.8rem;font-weight:600;transition:all var(--tr)}
+.notes-save-btn{margin-top:8px;padding:7px 18px;border-radius:var(--rsm);background:rgba(246,173,85,.12);border:1px solid rgba(246,173,85,.3);color:var(--accent2);font-size:.8rem;font-weight:600;transition:all var(--tr)}
 .notes-save-btn:hover{background:rgba(246,173,85,.22)}
 .notes-saved-tag{font-size:.72rem;color:var(--accent3);margin-left:10px;opacity:0;transition:opacity .3s}
 .notes-saved-tag.show{opacity:1}
-
 .detail-actions{display:flex;gap:10px;flex-wrap:wrap}
 .btn-secondary{display:flex;align-items:center;gap:7px;padding:11px 20px;border-radius:var(--rsm);border:1.5px solid var(--border);color:var(--text);font-size:.84rem;font-weight:500;transition:all var(--tr)}
 .btn-secondary:hover{border-color:var(--border-glow);background:rgba(74,120,255,.06)}
 .btn-danger{display:flex;align-items:center;gap:7px;padding:11px 20px;border-radius:var(--rsm);border:1.5px solid rgba(252,129,129,.3);color:var(--red);font-size:.84rem;font-weight:500;transition:all var(--tr)}
 .btn-danger:hover{background:rgba(252,129,129,.08)}
-
 .section-header{display:flex;align-items:center;gap:14px;margin-bottom:22px}
 .section-title{font-family:var(--font-head);font-size:1.05rem;font-weight:700;letter-spacing:-.02em}
 .section-line{flex:1;height:1px;background:var(--border)}
@@ -347,13 +282,9 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
 /* ═══════════════════════════════════════════
    ADD/EDIT MODAL
 ═══════════════════════════════════════════ */
-.modal-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.88);
-  backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;transition:opacity .3s ease;padding:20px}
+.modal-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.88);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease;padding:20px}
 .modal-overlay.open{opacity:1;pointer-events:all}
-.add-modal{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:36px;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;
-  transform:scale(.94);transition:transform .3s ease}
+.add-modal{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:36px;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;transform:scale(.94);transition:transform .3s ease}
 .modal-overlay.open .add-modal{transform:scale(1)}
 .modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
 .modal-title{font-family:var(--font-head);font-size:1.3rem;font-weight:800;letter-spacing:-.03em}
@@ -381,30 +312,19 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
 .btn-save:hover{background:#4a78ff;transform:translateY(-1px);box-shadow:0 6px 20px rgba(74,120,255,.4)}
 .btn-cancel{padding:13px 20px;border-radius:var(--rsm);border:1.5px solid var(--border);color:var(--muted2);font-size:.9rem;transition:all var(--tr)}
 .btn-cancel:hover{border-color:rgba(74,120,255,.4);color:var(--text)}
-
-/* IMAGE MODAL */
 .img-modal-overlay{position:fixed;inset:0;z-index:1100;background:rgba(0,0,0,.93);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease}
 .img-modal-overlay.open{opacity:1;pointer-events:all}
 .modal-img{max-width:90vw;max-height:88vh;border-radius:var(--radius);box-shadow:0 32px 80px rgba(0,0,0,.8);transform:scale(.92);transition:transform .3s ease;object-fit:contain}
 .img-modal-overlay.open .modal-img{transform:scale(1)}
 .modal-close{position:absolute;top:18px;right:22px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid var(--border);color:var(--text);font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all var(--tr)}
 .modal-close:hover{background:rgba(255,255,255,.2)}
-
-/* CONFIRM */
 .confirm-box{position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center}
 .confirm-box.open{display:flex}
 .confirm-inner{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:360px;width:100%;text-align:center}
 .confirm-inner h4{font-family:var(--font-head);font-size:1.1rem;margin-bottom:10px}
 .confirm-inner p{color:var(--muted2);font-size:.87rem;margin-bottom:22px}
 .confirm-btns{display:flex;gap:10px;justify-content:center}
-
-/* TOAST */
-.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(12px);
-  background:rgba(15,15,30,.95);backdrop-filter:blur(12px);
-  border:1px solid var(--border);color:var(--text);
-  padding:10px 22px;border-radius:99px;font-size:.84rem;z-index:9999;
-  opacity:0;transition:all .3s ease;pointer-events:none;
-  box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(12px);background:rgba(15,15,30,.95);backdrop-filter:blur(12px);border:1px solid var(--border);color:var(--text);padding:10px 22px;border-radius:99px;font-size:.84rem;z-index:9999;opacity:0;transition:all .3s ease;pointer-events:none;box-shadow:0 8px 32px rgba(0,0,0,.5)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 @media(max-width:900px){.detail-grid{grid-template-columns:1fr}}
@@ -418,81 +338,16 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
   body,button,input,a{cursor:auto}
 }
 
-/* ── AUTHOR CREDIT TAB ── */
-#author-tab{
-  position:fixed;bottom:0;right:32px;z-index:500;
-  background:rgba(15,15,30,.96);
-  backdrop-filter:blur(16px);
-  border:1px solid rgba(74,120,255,.25);
-  border-bottom:none;
-  border-radius:12px 12px 0 0;
-  padding:0;
-  overflow:hidden;
-  transition:all .35s cubic-bezier(.4,0,.2,1);
-  box-shadow:0 -4px 24px rgba(74,120,255,.1);
-}
-#author-tab.collapsed{ padding:0; }
-.author-tab-header{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 18px;cursor:none;
-  border-bottom:1px solid transparent;
-  transition:border-color .3s;
-}
-#author-tab:not(.collapsed) .author-tab-header{
-  border-bottom-color:rgba(255,255,255,.06);
-}
-.author-tab-header:hover .author-chevron{ transform:rotate(180deg); }
-#author-tab.collapsed .author-chevron{ transform:rotate(0deg); }
-.author-avatar{
-  width:28px;height:28px;border-radius:50%;
-  background:linear-gradient(135deg,#2d5be3,#4a78ff);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.75rem;font-weight:800;color:#fff;flex-shrink:0;
-  box-shadow:0 0 10px rgba(74,120,255,.4);
-}
-.author-tab-name{font-size:.8rem;font-weight:700;color:var(--text);font-family:var(--font-head);letter-spacing:-.01em}
-.author-tab-sub{font-size:.68rem;color:var(--muted);margin-top:1px}
-.author-chevron{
-  margin-left:auto;font-size:.7rem;color:var(--muted);
-  transition:transform .3s ease;
-}
-.author-tab-body{
-  max-height:0;overflow:hidden;
-  transition:max-height .35s cubic-bezier(.4,0,.2,1);
-}
-#author-tab:not(.collapsed) .author-tab-body{ max-height:200px; }
-.author-body-inner{padding:14px 18px 18px;display:flex;flex-direction:column;gap:10px}
-.author-row{display:flex;align-items:center;gap:10px}
-.author-icon{font-size:.9rem;width:20px;text-align:center;flex-shrink:0}
-.author-detail{font-size:.78rem;color:var(--muted2);line-height:1.4}
-.author-detail strong{color:var(--text);font-weight:600}
-.author-email{
-  color:#6a9eff;text-decoration:none;font-size:.78rem;
-  transition:color .2s;
-}
-.author-email:hover{color:#90c0ff}
-.author-divider{height:1px;background:var(--border);margin:2px 0}
-.author-built-with{font-size:.68rem;color:var(--muted);text-align:center;padding-top:2px;
-  display:flex;align-items:center;justify-content:center;gap:5px}
-.author-built-with span{color:#6a9eff;font-weight:600}
-
-
 /* ── CATEGORY MANAGER MODAL ── */
 #catModal .add-modal{max-width:520px}
 .cat-manager-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;max-height:300px;overflow-y:auto}
-.cat-manager-item{display:flex;align-items:center;gap:12px;
-  background:#0a0a1a;border:1px solid var(--border);border-radius:var(--rsm);
-  padding:10px 14px;transition:border-color var(--tr)}
+.cat-manager-item{display:flex;align-items:center;gap:12px;background:#0a0a1a;border:1px solid var(--border);border-radius:var(--rsm);padding:10px 14px;transition:border-color var(--tr)}
 .cat-manager-item:hover{border-color:rgba(255,255,255,.12)}
 .cat-color-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
 .cat-icon-badge{font-size:1.1rem;width:24px;text-align:center;flex-shrink:0}
 .cat-manager-name{font-size:.88rem;font-weight:600;flex:1}
-.cat-manager-count{font-size:.72rem;color:var(--muted);padding:2px 8px;
-  background:rgba(255,255,255,.05);border-radius:99px;border:1px solid var(--border)}
-.cat-delete-btn{width:26px;height:26px;border-radius:50%;
-  border:1px solid rgba(252,129,129,.25);color:var(--red);
-  display:flex;align-items:center;justify-content:center;font-size:.75rem;
-  transition:all var(--tr);flex-shrink:0}
+.cat-manager-count{font-size:.72rem;color:var(--muted);padding:2px 8px;background:rgba(255,255,255,.05);border-radius:99px;border:1px solid var(--border)}
+.cat-delete-btn{width:26px;height:26px;border-radius:50%;border:1px solid rgba(252,129,129,.25);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:all var(--tr);flex-shrink:0}
 .cat-delete-btn:hover{background:rgba(252,129,129,.1)}
 .cat-delete-btn:disabled{opacity:.25;pointer-events:none}
 .cat-add-section{border-top:1px solid var(--border);padding-top:18px}
@@ -500,37 +355,22 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
 .cat-add-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:end}
 .cat-color-picker-wrap{display:flex;flex-direction:column;gap:5px}
 .cat-color-grid{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-.cat-color-swatch{width:22px;height:22px;border-radius:50%;cursor:none;
-  border:2px solid transparent;transition:all var(--tr)}
+.cat-color-swatch{width:22px;height:22px;border-radius:50%;cursor:none;border:2px solid transparent;transition:all var(--tr)}
 .cat-color-swatch.selected{border-color:#fff;transform:scale(1.15)}
 .cat-icon-picker{display:flex;flex-direction:column;gap:5px}
 .cat-icon-grid{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-.cat-icon-opt{width:32px;height:32px;border-radius:6px;cursor:none;font-size:1rem;
-  background:rgba(255,255,255,.04);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  transition:all var(--tr)}
+.cat-icon-opt{width:32px;height:32px;border-radius:6px;cursor:none;font-size:1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all var(--tr)}
 .cat-icon-opt.selected{background:rgba(74,120,255,.15);border-color:rgba(74,120,255,.4)}
 .cat-icon-opt:hover{background:rgba(255,255,255,.08)}
-.btn-cat-add{padding:11px 18px;border-radius:var(--rsm);
-  background:#2d5be3;color:#fff;font-size:.85rem;font-weight:700;
-  transition:all var(--tr);white-space:nowrap;align-self:flex-end}
+.btn-cat-add{padding:11px 18px;border-radius:var(--rsm);background:#2d5be3;color:#fff;font-size:.85rem;font-weight:700;transition:all var(--tr);white-space:nowrap;align-self:flex-end}
 .btn-cat-add:hover{background:#4a78ff;transform:translateY(-1px)}
-
-
-/* ── RELATED PICKER ── */
 .related-picker-wrap{position:relative}
-.related-picker-search{width:100%;background:#0a0a1a;border:1.5px solid var(--border);
-  border-radius:var(--rsm);color:var(--text);padding:9px 14px;font-size:.85rem;
-  outline:none;transition:border-color var(--tr)}
+.related-picker-search{width:100%;background:#0a0a1a;border:1.5px solid var(--border);border-radius:var(--rsm);color:var(--text);padding:9px 14px;font-size:.85rem;outline:none;transition:border-color var(--tr)}
 .related-picker-search:focus{border-color:rgba(74,120,255,.5)}
 .related-picker-search::placeholder{color:var(--muted)}
-.related-dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:200;
-  background:#0f0f1e;border:1px solid rgba(74,120,255,.3);border-radius:var(--rsm);
-  max-height:200px;overflow-y:auto;display:none;
-  box-shadow:0 8px 32px rgba(0,0,0,.6)}
+.related-dropdown{position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:200;background:#0f0f1e;border:1px solid rgba(74,120,255,.3);border-radius:var(--rsm);max-height:200px;overflow-y:auto;display:none;box-shadow:0 8px 32px rgba(0,0,0,.6)}
 .related-dropdown.open{display:block}
-.related-dropdown-item{padding:9px 14px;display:flex;align-items:center;gap:10px;
-  cursor:pointer;transition:background var(--tr);border-bottom:1px solid var(--border)}
+.related-dropdown-item{padding:9px 14px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:background var(--tr);border-bottom:1px solid var(--border)}
 .related-dropdown-item:last-child{border-bottom:none}
 .related-dropdown-item:hover{background:rgba(74,120,255,.1)}
 .related-dropdown-item.selected{background:rgba(74,120,255,.15)}
@@ -540,33 +380,14 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
 .rdi-id{font-size:.68rem;color:var(--muted)}
 .rdi-check{color:#68d391;font-size:.8rem;flex-shrink:0}
 .related-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;min-height:10px}
-.related-tag{display:flex;align-items:center;gap:5px;
-  background:rgba(74,120,255,.12);border:1px solid rgba(74,120,255,.3);
-  border-radius:99px;padding:3px 10px;font-size:.72rem;color:#6a9eff}
-.related-tag-remove{color:var(--muted);font-size:.7rem;
-  transition:color var(--tr);padding:0 2px}
+.related-tag{display:flex;align-items:center;gap:5px;background:rgba(74,120,255,.12);border:1px solid rgba(74,120,255,.3);border-radius:99px;padding:3px 10px;font-size:.72rem;color:#6a9eff}
+.related-tag-remove{color:var(--muted);font-size:.7rem;transition:color var(--tr);padding:0 2px}
 .related-tag-remove:hover{color:#fc8181}
-
-
-/* ── HOZZÁADTA BADGE ── */
-.card-added-by{font-size:.65rem;color:var(--muted);
-  display:flex;align-items:center;gap:4px;margin-top:6px;
-  padding-top:6px;border-top:1px solid var(--border)}
-.card-added-by span{color:var(--muted2);font-weight:500}
-.detail-added-by{font-size:.75rem;color:var(--muted);
-  display:flex;align-items:center;gap:6px;
-  background:rgba(255,255,255,.03);border:1px solid var(--border);
-  border-radius:var(--rsm);padding:8px 12px}
-.detail-added-by span{color:var(--muted2);font-weight:500}
-
 </style>
 </head>
 <body>
-<!-- CURSOR -->
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
-
-<!-- BG -->
 <div id="bg-canvas"></div>
 <div class="orb orb1"></div>
 <div class="orb orb2"></div>
@@ -575,47 +396,42 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
 
 <div id="app">
 
-<!-- HEADER -->
 <header>
   <div class="logo" onclick="showSearch()">
     <div class="logo-dot"></div>Nexora
   </div>
-  <div class="header-dev-credit" style="font-size:.68rem;color:var(--muted);letter-spacing:.03em;display:flex;align-items:center;gap:5px;margin-right:4px"><span style="width:6px;height:6px;border-radius:50%;background:#2d5be3;display:inline-block;box-shadow:0 0 6px #2d5be3"></span>by Varga Viktor · TH-312</div>
   <div class="header-right">
     <button class="btn-stats-header" id="dashBtn" onclick="showDash()">📊 Dashboard</button>
-    <button class="btn-stats-header" onclick="openCatModal()" style="gap:6px">🏷️ Kategóriák</button>
-    <button class="btn-add-header" onclick="openAddModal()">+ Új termék</button>
+    <button class="btn-stats-header" onclick="openCatModal()">🏷️ Categories</button>
+    <button class="btn-add-header" onclick="openAddModal()">+ New Part</button>
   </div>
 </header>
 
-<!-- DASHBOARD PAGE -->
 <div id="dashPage" class="page">
   <div class="dash-title">Dashboard</div>
-  <div class="dash-sub">Adatbázis áttekintő — kategóriák, statisztikák, legutóbbi termékek</div>
+  <div class="dash-sub">Database overview — categories, statistics, recent parts</div>
   <div class="stat-cards" id="statCards"></div>
   <div class="dash-section">
-    <div class="dash-section-title">Kategóriánkénti eloszlás</div>
+    <div class="dash-section-title">Distribution by Category</div>
     <div class="cat-bars" id="catBars"></div>
   </div>
   <div class="dash-section">
-    <div class="dash-section-title">Legutóbb megtekintett</div>
+    <div class="dash-section-title">Recently Viewed</div>
     <div class="recent-grid" id="recentGrid"></div>
   </div>
 </div>
 
-<!-- SEARCH PAGE -->
 <div id="searchPage" class="page active">
   <div class="inner">
     <div class="hero">
-      <div class="hero-label">Belső rendszer</div>
-      <h1>Nexora <span>Adatbázis</span></h1>
-      <p>Keress cikkszám, BEM szám vagy terméknév alapján — minden alkatrész egy helyen.</p>
+      <div class="hero-label">Internal System</div>
+      <h1>Nexora <span>Database</span></h1>
+      <p>Search by part number, reference number or name — all parts in one place.</p>
     </div>
-
     <div class="search-outer">
       <div class="search-glass">
         <span class="search-glass-icon">⌕</span>
-        <input type="text" id="searchInput" placeholder="Keresés: név, cikkszám, BEM szám…" autocomplete="off" spellcheck="false">
+        <input type="text" id="searchInput" placeholder="Search: name, part number, reference…" autocomplete="off" spellcheck="false">
         <button class="search-glass-clear" id="clearBtn" onclick="clearSearch()">✕</button>
       </div>
     </div>
@@ -625,18 +441,17 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
   </div>
 </div>
 
-<!-- DETAIL PAGE -->
 <div id="detailPage" class="page">
   <div class="inner">
     <button class="back-btn" onclick="showSearch()">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
-      Vissza a találatokhoz
+      Back to results
     </button>
     <div class="detail-grid">
       <div>
         <div class="detail-img-wrap" id="detailImgWrap">
           <div id="detailImgInner"></div>
-          <div class="zoom-hint" id="zoomHint">🔍 Kattints a nagyításhoz</div>
+          <div class="zoom-hint" id="zoomHint">🔍 Click to zoom</div>
         </div>
       </div>
       <div class="detail-info">
@@ -645,13 +460,12 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
         <div class="detail-ids-row" id="detailIds"></div>
         <p class="detail-desc" id="detailDesc"></p>
         <div class="detail-meta-grid" id="detailMeta"></div>
-        <!-- NOTES -->
         <div class="notes-section">
-          <div class="notes-label">📝 Belső megjegyzés <span>privát</span></div>
-          <textarea class="notes-textarea" id="noteTextarea" placeholder="Ide írhatsz belső megjegyzést ehhez a termékhez… (pl. elhelyezés, állapot, rendelési státusz)"></textarea>
+          <div class="notes-label">📝 Internal Note <span>private</span></div>
+          <textarea class="notes-textarea" id="noteTextarea" placeholder="Add an internal note for this part… (e.g. location, condition, order status)"></textarea>
           <div style="display:flex;align-items:center">
-            <button class="notes-save-btn" onclick="saveNote()">💾 Megjegyzés mentése</button>
-            <span class="notes-saved-tag" id="noteSavedTag">✓ Mentve</span>
+            <button class="notes-save-btn" onclick="saveNote()">💾 Save Note</button>
+            <span class="notes-saved-tag" id="noteSavedTag">✓ Saved</span>
           </div>
         </div>
         <div class="detail-actions" id="detailActions"></div>
@@ -659,7 +473,7 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
     </div>
     <div>
       <div class="section-header">
-        <div class="section-title">Kapcsolódó termékek</div>
+        <div class="section-title">Related Parts</div>
         <div class="section-line"></div>
         <div class="section-count" id="relatedCount"></div>
       </div>
@@ -668,62 +482,61 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
   </div>
 </div>
 
-</div><!-- #app -->
+</div>
 
-<!-- ADD/EDIT MODAL -->
 <div class="modal-overlay" id="addModal">
   <div class="add-modal">
     <div class="modal-header">
-      <div class="modal-title" id="modalTitle">Új termék hozzáadása</div>
+      <div class="modal-title" id="modalTitle">Add New Part</div>
       <button class="modal-close-btn" onclick="closeAddModal()">✕</button>
     </div>
     <div class="form-grid">
       <div class="form-group form-full">
-        <label class="form-label">Terméknév *</label>
-        <input class="form-input" id="fName" placeholder="pl. FLS Bit fej">
+        <label class="form-label">Part Name *</label>
+        <input class="form-input" id="fName" placeholder="e.g. Tool Head Type A">
       </div>
       <div class="form-group">
-        <label class="form-label">Cikkszám</label>
-        <input class="form-input" id="fPartNumber" placeholder="pl. 102819913">
+        <label class="form-label">Part Number</label>
+        <input class="form-input" id="fPartNumber" placeholder="e.g. PART-001">
       </div>
       <div class="form-group">
-        <label class="form-label">BEM szám</label>
-        <input class="form-input" id="fBemNumber" placeholder="pl. 3B1B933">
+        <label class="form-label">Reference Number</label>
+        <input class="form-input" id="fBemNumber" placeholder="e.g. REF-001">
       </div>
       <div class="form-group">
-        <label class="form-label">Kategória *</label>
+        <label class="form-label">Category *</label>
         <select class="form-select" id="fCategory">
-          <option value="">— Válassz —</option>
+          <option value="">— Select —</option>
         </select>
       </div>
       <div class="form-group">
-        <label class="form-label">Típus / Alcsoport</label>
-        <input class="form-input" id="fType" placeholder="pl. Kábel, Szenzor, Henger…">
+        <label class="form-label">Type / Subgroup</label>
+        <input class="form-input" id="fType" placeholder="e.g. Cable, Sensor, Cylinder…">
       </div>
       <div class="form-group form-full">
-        <label class="form-label">Leírás</label>
-        <textarea class="form-textarea" id="fDesc" placeholder="Rövid leírás a termékről…"></textarea>
+        <label class="form-label">Description</label>
+        <textarea class="form-textarea" id="fDesc" placeholder="Short description of the part…"></textarea>
       </div>
       <div class="form-group form-full">
-        <label class="form-label">Kép feltöltése</label>
+        <label class="form-label">Upload Image</label>
         <div class="img-upload-area" id="imgUploadArea" onclick="document.getElementById('imgFileInput').click()">
           <div id="imgPreviewWrap">
             <div class="img-upload-icon">📷</div>
-            <div class="img-upload-text">Kattints a kép feltöltéséhez</div>
+            <div class="img-upload-text">Click to upload image</div>
             <div class="img-upload-sub">JPG, PNG, WebP — max. 5MB</div>
           </div>
         </div>
         <input type="file" id="imgFileInput" accept="image/*" onchange="handleImgUpload(event)">
         <div class="form-hint" style="margin-top:8px">
-          Vagy URL:
+          Or URL:
           <input class="form-input" id="fImgUrl" placeholder="https://…" style="margin-top:6px" oninput="onImgUrlChange()">
         </div>
       </div>
       <div class="form-group form-full">
-        <label class="form-label">Kapcsolódó termékek</label>
+        <label class="form-label">Related Parts</label>
         <div class="related-picker-wrap">
           <input class="related-picker-search" id="relatedSearch"
-            placeholder="&#128269; Keress terméknév vagy cikkszám alapján..."
+            placeholder="&#128269; Search by name or part number..."
             autocomplete="off"
             oninput="filterRelatedDropdown()"
             onfocus="openRelatedDropdown()"
@@ -732,59 +545,76 @@ mark.hl{background:rgba(74,120,255,.2);color:#6a9eff;border-radius:3px;padding:0
         </div>
         <div class="related-tags" id="relatedTags"></div>
         <input type="hidden" id="fRelated">
-        <div class="form-hint">Kattints a termékre a hozzaadashoz — az ID automatikusan bekerül</div>
+        <div class="form-hint">Click a part to add it — ID is added automatically</div>
       </div>
     </div>
     <div class="form-actions">
-      <button class="btn-cancel" onclick="closeAddModal()">Mégse</button>
-      <button class="btn-save" onclick="saveProduct()">💾 Mentés</button>
+      <button class="btn-cancel" onclick="closeAddModal()">Cancel</button>
+      <button class="btn-save" onclick="saveProduct()">💾 Save</button>
     </div>
   </div>
 </div>
 
-<!-- IMAGE MODAL -->
 <div class="img-modal-overlay" id="imgModal" onclick="closeImgModal()">
   <button class="modal-close" onclick="closeImgModal()">✕</button>
   <img class="modal-img" id="modalImg" src="" alt="">
 </div>
 
-<!-- CONFIRM -->
 <div class="confirm-box" id="confirmBox">
   <div class="confirm-inner">
-    <h4>Törlés megerősítése</h4>
-    <p>Biztosan törlöd ezt a terméket? A művelet nem visszavonható.</p>
+    <h4>Confirm Delete</h4>
+    <p>Are you sure you want to delete this part? This cannot be undone.</p>
     <div class="confirm-btns">
-      <button class="btn-cancel" style="padding:10px 22px" onclick="closeConfirm()">Mégse</button>
-      <button class="btn-danger" style="padding:10px 22px" id="confirmOkBtn">Törlés</button>
+      <button class="btn-cancel" style="padding:10px 22px" onclick="closeConfirm()">Cancel</button>
+      <button class="btn-danger" style="padding:10px 22px" id="confirmOkBtn">Delete</button>
     </div>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
-<script>
-/* ══════════════════════════════
-   CUSTOM CURSOR
-══════════════════════════════ */
-const cur = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX; my=e.clientY;
-  cur.style.left=mx+'px'; cur.style.top=my+'px';
-});
-(function animRing(){
-  rx+=(mx-rx)*.14; ry+=(my-ry)*.14;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
-})();
+<div class="modal-overlay" id="catModal">
+  <div class="add-modal">
+    <div class="modal-header">
+      <div class="modal-title">🏷️ Category Manager</div>
+      <button class="modal-close-btn" onclick="closeCatModal()">✕</button>
+    </div>
+    <div class="cat-manager-list" id="catManagerList"></div>
+    <div class="cat-add-section">
+      <div class="cat-add-title">Add New Category</div>
+      <div class="cat-add-row">
+        <div class="form-group">
+          <label class="form-label">Category Name *</label>
+          <input class="form-input" id="newCatName" placeholder="e.g. VISION, DRIVES, SENSORS…" maxlength="20">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
+        <div class="cat-color-picker-wrap">
+          <label class="form-label">Color</label>
+          <div class="cat-color-grid" id="catColorGrid"></div>
+        </div>
+        <div class="cat-icon-picker">
+          <label class="form-label">Icon</label>
+          <div class="cat-icon-grid" id="catIconGrid"></div>
+        </div>
+      </div>
+      <div style="margin-top:16px;display:flex;justify-content:flex-end">
+        <button class="btn-cat-add" onclick="addCategory()">➕ Add Category</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-/* ══════════════════════════════
-   SEED DATA
-══════════════════════════════ */
+<script>
+const cur=document.getElementById('cursor');
+const ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+
 const SEED=[
-  {id:1,addedBy:'system',addedAt:Date.now()-86400000*10,name:"Tool Head Type A",partNumber:"PART-001",bemNumber:"",category:"SYSTEM-A",type:"Tool Component",description:"Precision tool head unit designed for automated assembly operations.",image:"",related:[2,3,4,5,6,7,8],note:"",addedAt:Date.now()-86400000*10},
-  {id:2,name:"Feeder Claws Set",partNumber:"PART-002",bemNumber:"REF-001",category:"SYSTEM-A",type:"Feeder Component",description:"Feeder claws assembly set. Series C3, M09 variant.",image:"",related:[1,3,4],note:"",addedAt:Date.now()-86400000*9},
+  {id:1,addedBy:'system',addedAt:Date.now()-86400000*10,name:"Tool Head Type A",partNumber:"PART-001",bemNumber:"",category:"SYSTEM-A",type:"Tool Component",description:"Precision tool head unit designed for automated assembly operations.",image:"",related:[2,3,4,5,6,7,8],note:""},
+  {id:2,name:"Feeder Claws Set",partNumber:"PART-002",bemNumber:"REF-001",category:"SYSTEM-A",type:"Feeder Component",description:"Feeder claws assembly set. Series C3, variant M09.",image:"",related:[1,3,4],note:"",addedAt:Date.now()-86400000*9},
   {id:3,name:"Feeder Arm Assembly",partNumber:"PART-003",bemNumber:"",category:"SYSTEM-A",type:"Feeder Component",description:"Assembled feeder arm with claws, variant A.",image:"",related:[1,2,4],note:"",addedAt:Date.now()-86400000*9},
   {id:4,name:"Feeder Head Unit",partNumber:"PART-004",bemNumber:"REF-002",category:"SYSTEM-A",type:"Feeder Head",description:"Feeder head unit, variant D.",image:"",related:[1,2,3,8],note:"",addedAt:Date.now()-86400000*8},
   {id:5,name:"Adjustment Tool Mount",partNumber:"PART-005",bemNumber:"REF-003",category:"SYSTEM-A",type:"Mounting Element",description:"Adjustment tool mounting block, variant B.",image:"",related:[1,6],note:"",addedAt:Date.now()-86400000*8},
@@ -813,725 +643,145 @@ const SEED=[
   {id:28,name:"PC Board 4-Port PoE",partNumber:"PART-028",bemNumber:"REF-014",category:"SYSTEM-B",type:"Electronics",description:"PC Board with 4-Port PoE network interface.",image:"",related:[27,29],note:"",addedAt:Date.now()-86400000*1},
   {id:29,name:"PCIe Network Card",partNumber:"PART-029",bemNumber:"",category:"SYSTEM-B",type:"Electronics",description:"PCIe network card for vision system.",image:"",related:[28,27],note:"",addedAt:Date.now()-86400000*1},
   {id:30,name:"Red Protective Cover",partNumber:"PART-030",bemNumber:"REF-015",category:"SYSTEM-C",type:"Protective Cover",description:"Red protective cover for cable management system.",image:"",related:[31],note:"",addedAt:Date.now()-86400000*5},
-  {id:31,name:"Black Cable Management Holder",partNumber:"PART-031",bemNumber:"REF-016",category:"SYSTEM-C",type:"Holder Element",description:"Black cable management holder element.",image:"",related:[30],note:"",addedAt:Date.now()-86400000*3},
+  {id:31,name:"Black Cable Holder",partNumber:"PART-031",bemNumber:"REF-016",category:"SYSTEM-C",type:"Holder Element",description:"Black cable management holder element.",image:"",related:[30],note:"",addedAt:Date.now()-86400000*3},
 ];
 
-/* ══════════════════════════════
-   STORAGE
-══════════════════════════════ */
 const RK='nexora_recent_v1';
-
 async function loadDB(){
-  try{
-    const r=await fetch('adatok.json?t='+Date.now());
-    if(r.ok){
-      const d=await r.json();
-      if(d.notes) NOTES=d.notes;
-      if(d.categories&&d.categories.length) CAT_LIST=d.categories;
-      return d.products||[];
-    }
-  }catch(e){}
-  // Fallback: localStorage
+  try{const r=await fetch('data.json?t='+Date.now());if(r.ok){const d=await r.json();if(d.notes)NOTES=d.notes;if(d.categories&&d.categories.length)CAT_LIST=d.categories;return d.products||[];}}catch(e){}
   try{const r=localStorage.getItem('nexora_v1');if(r)return JSON.parse(r);}catch(e){}
   return JSON.parse(JSON.stringify(SEED));
 }
-
 async function saveDB(d){
-  try{
-    await fetch('/api/save',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({products:d,notes:NOTES,categories:CAT_LIST})
-    });
-  }catch(e){
-    localStorage.setItem('nexora_v1',JSON.stringify(d));
-  }
+  try{await fetch('/api/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({products:d,notes:NOTES,categories:CAT_LIST})});}
+  catch(e){localStorage.setItem('nexora_v1',JSON.stringify(d));}
 }
-
-async function saveNotes(n){
-  NOTES=n;
-  await saveDB(DB);
-}
-
-function loadNotes(){return{};}
+async function saveNotes(n){NOTES=n;await saveDB(DB);}
 function loadRecent(){try{return JSON.parse(localStorage.getItem(RK)||'[]')}catch(e){return[]}}
 function saveRecent(r){localStorage.setItem(RK,JSON.stringify(r));}
-
-// Bejelentkezett felhasználó lekérése
-let CURRENT_USER='ismeretlen';
-async function loadCurrentUser(){
-  try{
-    const r=await fetch('/api/whoami',{signal:AbortSignal.timeout(2000)});
-    if(r.ok){const d=await r.json();CURRENT_USER=d.username||'ismeretlen';}
-  }catch(e){CURRENT_USER='ismeretlen';}
-}
-
-// 20mp-ként frissít
-setInterval(async()=>{
-  try{
-    const r=await fetch('adatok.json?t='+Date.now());
-    if(r.ok){
-      const d=await r.json();
-      if(d.products){DB=d.products;NOTES=d.notes||{};applyFilters();}
-    }
-  }catch(e){}
-},20000);
-
-let DB=[];
-let NOTES={};
-let RECENT=loadRecent();
+let CURRENT_USER='user';
+setInterval(async()=>{try{const r=await fetch('data.json?t='+Date.now());if(r.ok){const d=await r.json();if(d.products){DB=d.products;NOTES=d.notes||{};applyFilters();}}}catch(e){}},20000);
+let DB=[],NOTES={},RECENT=loadRecent();
 function nextId(){return DB.length?Math.max(...DB.map(p=>p.id))+1:1;}
 
-/* ══════════════════════════════
-   STATE
-══════════════════════════════ */
 const CAT_KEY='nexora_cats_v1';
 const DEFAULT_CATS=[
-  {name:'FLS',    color:'#f6ad55',icon:'⚙'},
-  {name:'ISRA',   color:'#4a78ff',icon:'📷'},
-  {name:'FANUC',  color:'#fc8181',icon:'🤖'},
-  {name:'SZATELIT',color:'#68d391',icon:'🛰'},
-  {name:'TOOLCHANGER',color:'#b794f4',icon:'🔧'},
-  {name:'DRESSPACK',color:'#ed8936',icon:'🔌'},
+  {name:'SYSTEM-A',color:'#f6ad55',icon:'⚙'},
+  {name:'SYSTEM-B',color:'#4a78ff',icon:'📷'},
+  {name:'SYSTEM-C',color:'#ed8936',icon:'🔌'},
 ];
-function loadCats(){
-  try{const r=localStorage.getItem(CAT_KEY);if(r)return JSON.parse(r);}catch(e){}
-  saveCats(DEFAULT_CATS);return JSON.parse(JSON.stringify(DEFAULT_CATS));
-}
+function loadCats(){try{const r=localStorage.getItem(CAT_KEY);if(r)return JSON.parse(r);}catch(e){}saveCats(DEFAULT_CATS);return JSON.parse(JSON.stringify(DEFAULT_CATS));}
 function saveCats(c){localStorage.setItem(CAT_KEY,JSON.stringify(c));saveDB(DB);}
 let CAT_LIST=loadCats();
-function getCatNames(){return['Összes',...CAT_LIST.map(c=>c.name)];}
+function getCatNames(){return['All',...CAT_LIST.map(c=>c.name)];}
 function getCatColor(name){return(CAT_LIST.find(c=>c.name===name)||{color:'#6a9eff'}).color;}
 function getCatIcon(name){return(CAT_LIST.find(c=>c.name===name)||{icon:'📦'}).icon;}
-// Legacy compat
-function get_CATS(){return getCatNames();}
-let query='',activeTab='Összes';
-let editingId=null,pendingImgData=null;
-let currentProductId=null;
-// Selected new cat color/icon
-let newCatColor='#4a78ff';
-let newCatIcon='⭐';
+let query='',activeTab='All';
+let editingId=null,pendingImgData=null,currentProductId=null;
+let newCatColor='#4a78ff',newCatIcon='⭐';
 const PALETTE=['#4a78ff','#f6ad55','#fc8181','#68d391','#b794f4','#ed8936','#81e6d9','#f687b3','#fbd38d','#9ae6b4','#90cdf4','#e9d8fd','#ffffff','#a0aec0'];
 const ICONS=['⚙','📷','🤖','🛰','🔧','🔌','🔩','🪛','🔋','💡','🖥','📡','🏭','⚡','🔬','🧲','🪝','🔑','📦','⭐'];
 
-/* ══════════════════════════════
-   INIT
-══════════════════════════════ */
-async function init(){
-  buildTabs();
-  refreshCategorySelect('');
-  showSkeleton();
-  await loadCurrentUser();
-  DB=await loadDB();
-  renderGrid(DB);
-  document.getElementById('searchInput').addEventListener('input',onSearch);
-}
-
-/* ══════════════════════════════
-   SKELETON
-══════════════════════════════ */
-function showSkeleton(){
-  const g=document.getElementById('resultsGrid');
-  g.innerHTML=Array(6).fill(0).map((_,i)=>`
-    <div class="skeleton-card" style="animation-delay:${i*.06}s">
-      <div class="skel-img"></div>
-      <div class="skel-body">
-        <div class="skel-line w40"></div>
-        <div class="skel-line w80 h14"></div>
-        <div class="skel-line w60"></div>
-      </div>
-      <div class="skel-footer"></div>
-    </div>`).join('');
-}
-
-/* ══════════════════════════════
-   DASHBOARD
-══════════════════════════════ */
-function showDash(){
-  document.getElementById('dashBtn').classList.add('active');
-  buildDash();
-  switchPage('dashPage');
-}
+async function init(){buildTabs();refreshCategorySelect('');showSkeleton();DB=await loadDB();renderGrid(DB);document.getElementById('searchInput').addEventListener('input',onSearch);}
+function showSkeleton(){const g=document.getElementById('resultsGrid');g.innerHTML=Array(6).fill(0).map((_,i)=>`<div class="skeleton-card" style="animation-delay:${i*.06}s"><div class="skel-img"></div><div class="skel-body"><div class="skel-line w40"></div><div class="skel-line w80 h14"></div><div class="skel-line w60"></div></div><div class="skel-footer"></div></div>`).join('');}
+function showDash(){document.getElementById('dashBtn').classList.add('active');buildDash();switchPage('dashPage');}
 function buildDash(){
-  const total=DB.length;
-  const cats=CAT_LIST.map(c=>c.name);
-  const counts={};cats.forEach(c=>counts[c]=DB.filter(p=>p.category===c).length);
-  const withNotes=Object.keys(NOTES).filter(k=>NOTES[k]&&NOTES[k].trim()).length;
-  const withImg=DB.filter(p=>p.image).length;
-
-  // Stat cards
-  const statDefs=[
-    {label:'Összes termék',val:total,icon:'📦',color:'blue'},
-    ...cats.map((c,i)=>({label:c,val:counts[c],icon:catIcon(c),color:['orange','blue','red','green','purple','coral'][i]})),
-    {label:'Megjegyzéssel',val:withNotes,icon:'📝',color:'teal'},
-    {label:'Képpel rendelkezik',val:withImg,icon:'🖼',color:'gray'},
-  ];
-  document.getElementById('statCards').innerHTML=statDefs.map(s=>`
-    <div class="stat-card" data-color="${s.color}" onclick="${s.label!=='Összes termék'&&cats.includes(s.label)?`setTabAndSearch('${s.label}')`:s.label==='Összes termék'?'showSearch()':''}">
-      <div class="stat-num">${s.val}</div>
-      <div class="stat-label">${s.label}</div>
-      <div class="stat-icon">${s.icon}</div>
-    </div>`).join('');
-
-  // Bar chart
+  const total=DB.length;const cats=CAT_LIST.map(c=>c.name);const counts={};cats.forEach(c=>counts[c]=DB.filter(p=>p.category===c).length);
+  const withNotes=Object.keys(NOTES).filter(k=>NOTES[k]&&NOTES[k].trim()).length;const withImg=DB.filter(p=>p.image).length;
+  const statDefs=[{label:'Total Parts',val:total,icon:'📦',color:'blue'},...cats.map((c,i)=>({label:c,val:counts[c],icon:getCatIcon(c),color:['orange','blue','coral'][i]||'gray'})),{label:'With Notes',val:withNotes,icon:'📝',color:'teal'},{label:'With Image',val:withImg,icon:'🖼',color:'gray'}];
+  document.getElementById('statCards').innerHTML=statDefs.map(s=>`<div class="stat-card" data-color="${s.color}"><div class="stat-num">${s.val}</div><div class="stat-label">${s.label}</div><div class="stat-icon">${s.icon}</div></div>`).join('');
   const maxCount=Math.max(...cats.map(c=>counts[c]),1);
-  document.getElementById('catBars').innerHTML=cats.map(c=>{
-    const pct=Math.round(counts[c]/maxCount*100);
-    const col=getCatColor(c);
-    return `<div class="cat-bar-row">
-      <div class="cat-bar-name">${c}</div>
-      <div class="cat-bar-track">
-        <div class="cat-bar-fill" style="width:0%;background:${col}" data-pct="${pct}"></div>
-      </div>
-      <div class="cat-bar-count">${counts[c]}</div>
-    </div>`;
-  }).join('');
-  // animate bars
-  requestAnimationFrame(()=>{
-    document.querySelectorAll('.cat-bar-fill').forEach(el=>{
-      setTimeout(()=>el.style.width=el.dataset.pct+'%',80);
-    });
-  });
-
-  // Recent
+  document.getElementById('catBars').innerHTML=cats.map(c=>{const pct=Math.round(counts[c]/maxCount*100);const col=getCatColor(c);return`<div class="cat-bar-row"><div class="cat-bar-name">${c}</div><div class="cat-bar-track"><div class="cat-bar-fill" style="width:0%;background:${col}" data-pct="${pct}"></div></div><div class="cat-bar-count">${counts[c]}</div></div>`;}).join('');
+  requestAnimationFrame(()=>{document.querySelectorAll('.cat-bar-fill').forEach(el=>{setTimeout(()=>el.style.width=el.dataset.pct+'%',80);});});
   const recentIds=RECENT.slice(0,8);
-  if(!recentIds.length){
-    document.getElementById('recentGrid').innerHTML='<div class="no-related">Még nem néztek meg terméket ebben a munkamenetben.</div>';
-    return;
-  }
-  document.getElementById('recentGrid').innerHTML=recentIds.map(id=>{
-    const p=DB.find(x=>x.id===id);if(!p)return'';
-    const thumb=p.image?`<img src="${p.image}" alt="">`:`<span>${catIcon(p.category)}</span>`;
-    const ago=timeAgo(p.addedAt);
-    return `<div class="recent-card" onclick="showDetail(${p.id})">
-      <div class="recent-thumb">${thumb}</div>
-      <div class="recent-info">
-        <div class="recent-name">${p.name}</div>
-        <div class="recent-part">${p.partNumber||p.bemNumber||'—'}</div>
-        <div class="recent-time">${ago}</div>
-      </div>
-    </div>`;
-  }).join('');
+  if(!recentIds.length){document.getElementById('recentGrid').innerHTML='<div class="no-related">No parts viewed yet in this session.</div>';return;}
+  document.getElementById('recentGrid').innerHTML=recentIds.map(id=>{const p=DB.find(x=>x.id===id);if(!p)return'';const thumb=p.image?`<img src="${p.image}" alt="">`:`<span>${getCatIcon(p.category)}</span>`;return`<div class="recent-card" onclick="showDetail(${p.id})"><div class="recent-thumb">${thumb}</div><div class="recent-info"><div class="recent-name">${p.name}</div><div class="recent-part">${p.partNumber||p.bemNumber||'—'}</div></div></div>`;}).join('');
 }
-function setTabAndSearch(cat){activeTab=cat;buildTabs();applyFilters();showSearch();}
-function timeAgo(ts){
-  if(!ts)return'';
-  const d=Math.floor((Date.now()-ts)/86400000);
-  if(d===0)return'Ma adták hozzá';
-  if(d===1)return'1 napja';
-  return d+' napja';
-}
-
-/* ══════════════════════════════
-   TABS
-══════════════════════════════ */
-function buildTabs(){
-  document.getElementById('catTabs').innerHTML=getCatNames().map(c=>`
-    <button class="cat-tab ${c===activeTab?'active':''}" data-cat="${c}"
-      style="${c!=='Összes'&&activeTab===c?`background:${getCatColor(c)}22;color:${getCatColor(c)};border-color:${getCatColor(c)}66`:''}"
-      onclick="setTab('${c}')">${c}</button>`).join('');
-}
+function buildTabs(){document.getElementById('catTabs').innerHTML=getCatNames().map(c=>`<button class="cat-tab ${c===activeTab?'active':''}" data-cat="${c}" style="${c!=='All'&&activeTab===c?`background:${getCatColor(c)}22;color:${getCatColor(c)};border-color:${getCatColor(c)}66`:''}" onclick="setTab('${c}')">${c}</button>`).join('');}
 function setTab(cat){activeTab=cat;buildTabs();applyFilters();}
-
-/* ══════════════════════════════
-   SEARCH
-══════════════════════════════ */
-function onSearch(e){
-  query=e.target.value.trim();
-  document.getElementById('clearBtn').classList.toggle('visible',query.length>0);
-  applyFilters();
-}
-function clearSearch(){
-  document.getElementById('searchInput').value='';query='';
-  document.getElementById('clearBtn').classList.remove('visible');
-  applyFilters();
-}
-function applyFilters(){
-  let res=DB;
-  if(activeTab!=='Összes')res=res.filter(p=>p.category===activeTab);
-  if(query){const q=query.toLowerCase();res=res.filter(p=>
-    (p.name||'').toLowerCase().includes(q)||
-    (p.partNumber||'').toLowerCase().includes(q)||
-    (p.bemNumber||'').toLowerCase().includes(q)||
-    (p.description||'').toLowerCase().includes(q)||
-    (p.type||'').toLowerCase().includes(q));}
-  renderGrid(res);
-}
-function hl(t){
-  if(!query||!t)return t||'';
-  const e=query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-  return t.replace(new RegExp(`(${e})`,'gi'),'<mark class="hl">$1</mark>');
-}
-
-/* ══════════════════════════════
-   RENDER GRID
-══════════════════════════════ */
+function onSearch(e){query=e.target.value.trim();document.getElementById('clearBtn').classList.toggle('visible',query.length>0);applyFilters();}
+function clearSearch(){document.getElementById('searchInput').value='';query='';document.getElementById('clearBtn').classList.remove('visible');applyFilters();}
+function applyFilters(){let res=DB;if(activeTab!=='All')res=res.filter(p=>p.category===activeTab);if(query){const q=query.toLowerCase();res=res.filter(p=>(p.name||'').toLowerCase().includes(q)||(p.partNumber||'').toLowerCase().includes(q)||(p.bemNumber||'').toLowerCase().includes(q)||(p.description||'').toLowerCase().includes(q)||(p.type||'').toLowerCase().includes(q));}renderGrid(res);}
+function hl(t){if(!query||!t)return t||'';const e=query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return t.replace(new RegExp(`(${e})`,'gi'),'<mark class="hl">$1</mark>');}
 function renderGrid(products){
-  const g=document.getElementById('resultsGrid');
-  const s=document.getElementById('searchStats');
-  if(query||activeTab!=='Összes'){
-    s.innerHTML=products.length?`<mark>${products.length}</mark> találat a ${DB.length} termékből`:'';
-  }else{
-    s.innerHTML=`<mark>${DB.length}</mark> termék az adatbázisban`;
-  }
-  if(!products.length){
-    g.innerHTML=`<div class="empty-state"><div class="empty-icon">🔍</div>
-      <h3>Nincs találat</h3><p>„<strong>${query}</strong>" nem szerepel az adatbázisban.<br>Próbálj más kifejezést!</p></div>`;
-    return;
-  }
+  const g=document.getElementById('resultsGrid');const s=document.getElementById('searchStats');
+  if(query||activeTab!=='All'){s.innerHTML=products.length?`<mark>${products.length}</mark> results from ${DB.length} parts`:'';}else{s.innerHTML=`<mark>${DB.length}</mark> parts in database`;}
+  if(!products.length){g.innerHTML=`<div class="empty-state"><div class="empty-icon">🔍</div><h3>No results</h3><p>"<strong>${query}</strong>" not found in the database.</p></div>`;return;}
   g.innerHTML=products.map((p,i)=>{
-    const img=p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy">`:`<div class="card-no-img">${catIcon(p.category)}</div>`;
+    const img=p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy">`:`<div class="card-no-img">${getCatIcon(p.category)}</div>`;
     const hasNote=NOTES[p.id]&&NOTES[p.id].trim();
-    return `<div class="product-card" onclick="showDetail(${p.id})" style="animation-delay:${i*.04}s">
-      <div class="card-img-wrap">${img}
-        <span class="cat-badge" style="${catBadgeStyle(p.category)}">${p.category}</span>
-        ${hasNote?'<span class="note-dot" title="Van megjegyzés"></span>':''}
-      </div>
-      <div class="card-body">
-        <div class="card-ids">
-          ${p.partNumber?`<div class="card-part">${hl(p.partNumber)}</div>`:''}
-          ${p.bemNumber?`<div class="card-bemi">${hl(p.bemNumber)}</div>`:''}
-        </div>
-        <div class="card-name">${hl(p.name)}</div>
-        <div class="card-desc">${hl(p.description||'')}</div>
-      </div>
-      <div class="card-footer">
-        <span class="user-badge">${p.type||p.category}</span>
-        <span style="font-size:.62rem;color:var(--muted)">ID:${p.id}</span>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>`;
+    return`<div class="product-card" onclick="showDetail(${p.id})" style="animation-delay:${i*.04}s"><div class="card-img-wrap">${img}<span class="cat-badge" style="${catBadgeStyle(p.category)}">${p.category}</span>${hasNote?'<span class="note-dot"></span>':''}</div><div class="card-body"><div class="card-ids">${p.partNumber?`<div class="card-part">${hl(p.partNumber)}</div>`:''} ${p.bemNumber?`<div class="card-bemi">${hl(p.bemNumber)}</div>`:''}</div><div class="card-name">${hl(p.name)}</div><div class="card-desc">${hl(p.description||'')}</div></div><div class="card-footer"><span class="user-badge">${p.type||p.category}</span><span style="font-size:.62rem;color:var(--muted)">ID:${p.id}</span><div class="card-arrow">→</div></div></div>`;
   }).join('');
 }
-function catIcon(c){return getCatIcon(c);}
-function catBadgeStyle(name){
-  const col=getCatColor(name);
-  // convert hex to rgba manually
-  const r=parseInt(col.slice(1,3),16),g=parseInt(col.slice(3,5),16),b=parseInt(col.slice(5,7),16);
-  return `background:rgba(${r},${g},${b},.18);color:${col};border:1px solid rgba(${r},${g},${b},.4)`;
-}
-
-/* ══════════════════════════════
-   DETAIL
-══════════════════════════════ */
+function catBadgeStyle(name){const col=getCatColor(name);const r=parseInt(col.slice(1,3),16),g=parseInt(col.slice(3,5),16),b=parseInt(col.slice(5,7),16);return`background:rgba(${r},${g},${b},.18);color:${col};border:1px solid rgba(${r},${g},${b},.4)`;}
+function timeAgo(ts){if(!ts)return'';const d=Math.floor((Date.now()-ts)/86400000);if(d===0)return'Today';if(d===1)return'1 day ago';return d+' days ago';}
 function showDetail(id){
-  const p=DB.find(x=>x.id===id);if(!p)return;
-  currentProductId=id;
-
-  // Track recent
-  RECENT=RECENT.filter(x=>x!==id);
-  RECENT.unshift(id);
-  if(RECENT.length>20)RECENT=RECENT.slice(0,20);
-  saveRecent(RECENT);
-
-  // Image
-  const imgInner=document.getElementById('detailImgInner');
-  const zh=document.getElementById('zoomHint');
-  if(p.image){
-    imgInner.innerHTML=`<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover">`;
-    zh.style.display='flex';
-    document.getElementById('detailImgWrap').onclick=()=>openImgModal(p.image,p.name);
-  }else{
-    imgInner.innerHTML=`<div class="detail-no-img">${catIcon(p.category)}</div>`;
-    zh.style.display='none';
-    document.getElementById('detailImgWrap').onclick=null;
-  }
-
+  const p=DB.find(x=>x.id===id);if(!p)return;currentProductId=id;
+  RECENT=RECENT.filter(x=>x!==id);RECENT.unshift(id);if(RECENT.length>20)RECENT=RECENT.slice(0,20);saveRecent(RECENT);
+  const imgInner=document.getElementById('detailImgInner');const zh=document.getElementById('zoomHint');
+  if(p.image){imgInner.innerHTML=`<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover">`;zh.style.display='flex';document.getElementById('detailImgWrap').onclick=()=>openImgModal(p.image,p.name);}
+  else{imgInner.innerHTML=`<div class="detail-no-img">${getCatIcon(p.category)}</div>`;zh.style.display='none';document.getElementById('detailImgWrap').onclick=null;}
   document.getElementById('detailBreadcrumb').innerHTML=`<span>${p.category}</span>${p.type?` › <span>${p.type}</span>`:''}`;
   document.getElementById('detailName').textContent=p.name;
-
-  let idsHtml='';
-  idsHtml+=`<div class="detail-id-box" style="background:rgba(255,255,255,.03)"><div class="id-label">Adatbázis ID</div><div class="id-val id-val-muted" style="color:var(--muted2);font-size:.88rem">#${p.id}<button class="copy-btn" onclick="copyText('${p.id}','ID')" style="font-size:.6rem">📋</button></div></div>`;
-  if(p.partNumber)idsHtml+=`<div class="detail-id-box accent-box"><div class="id-label">Cikkszám</div><div class="id-val">${p.partNumber}<button class="copy-btn" onclick="copyText('${p.partNumber}','Cikkszám')">📋</button></div></div>`;
-  if(p.bemNumber)idsHtml+=`<div class="detail-id-box"><div class="id-label">BEM szám</div><div class="id-val id-val-muted">${p.bemNumber}<button class="copy-btn" onclick="copyText('${p.bemNumber}','BEM szám')">📋</button></div></div>`;
+  let idsHtml=`<div class="detail-id-box"><div class="id-label">Database ID</div><div class="id-val id-val-muted" style="color:var(--muted2);font-size:.88rem">#${p.id}<button class="copy-btn" onclick="copyText('${p.id}','ID')">📋</button></div></div>`;
+  if(p.partNumber)idsHtml+=`<div class="detail-id-box accent-box"><div class="id-label">Part Number</div><div class="id-val">${p.partNumber}<button class="copy-btn" onclick="copyText('${p.partNumber}','Part Number')">📋</button></div></div>`;
+  if(p.bemNumber)idsHtml+=`<div class="detail-id-box"><div class="id-label">Reference Number</div><div class="id-val id-val-muted">${p.bemNumber}<button class="copy-btn" onclick="copyText('${p.bemNumber}','Reference')">📋</button></div></div>`;
   document.getElementById('detailIds').innerHTML=idsHtml;
-  document.getElementById('detailDesc').textContent=p.description||'Nincs leírás megadva.';
-
+  document.getElementById('detailDesc').textContent=p.description||'No description available.';
   let meta='';
-  if(p.category)meta+=`<div class="meta-item"><div class="meta-label">Kategória</div><div class="meta-value">${p.category}</div></div>`;
-  if(p.type)meta+=`<div class="meta-item"><div class="meta-label">Típus</div><div class="meta-value">${p.type}</div></div>`;
-  if(p.addedAt)meta+=`<div class="meta-item"><div class="meta-label">Hozzáadva</div><div class="meta-value">${timeAgo(p.addedAt)}</div></div>`;
-  if(p.addedBy)meta+=`<div class="meta-item"><div class="meta-label">Hozzáadta</div><div class="meta-value">👤 ${p.addedBy}</div></div>`;
+  if(p.category)meta+=`<div class="meta-item"><div class="meta-label">Category</div><div class="meta-value">${p.category}</div></div>`;
+  if(p.type)meta+=`<div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">${p.type}</div></div>`;
+  if(p.addedAt)meta+=`<div class="meta-item"><div class="meta-label">Added</div><div class="meta-value">${timeAgo(p.addedAt)}</div></div>`;
+  if(p.addedBy)meta+=`<div class="meta-item"><div class="meta-label">Added by</div><div class="meta-value">👤 ${p.addedBy}</div></div>`;
   document.getElementById('detailMeta').innerHTML=meta;
-
-  // Note
-  document.getElementById('noteTextarea').value=NOTES[id]||'';
-  document.getElementById('noteSavedTag').classList.remove('show');
-
-  // Actions
-  document.getElementById('detailActions').innerHTML=`
-    <button class="btn-secondary" onclick="openEditModal(${p.id})">✏️ Szerkesztés</button>
-    <button class="btn-danger" onclick="confirmDelete(${p.id})">🗑 Törlés</button>`;
-
-  // Related
+  document.getElementById('noteTextarea').value=NOTES[id]||'';document.getElementById('noteSavedTag').classList.remove('show');
+  document.getElementById('detailActions').innerHTML=`<button class="btn-secondary" onclick="openEditModal(${p.id})">✏️ Edit</button><button class="btn-danger" onclick="confirmDelete(${p.id})">🗑 Delete</button>`;
   const rel=(p.related||[]).map(r=>DB.find(x=>x.id===r)).filter(Boolean);
-  document.getElementById('relatedCount').textContent=`${rel.length} termék`;
-  if(!rel.length){
-    document.getElementById('relatedGrid').innerHTML='<div class="no-related">Nincsenek kapcsolódó termékek megadva.</div>';
-  }else{
-    document.getElementById('relatedGrid').innerHTML=rel.map((rp,i)=>{
-      const ih=rp.image?`<img src="${rp.image}" alt="${rp.name}" loading="lazy">`:`<div class="card-no-img" style="height:140px">${catIcon(rp.category)}</div>`;
-      return `<div class="product-card" onclick="showDetail(${rp.id})" style="animation-delay:${i*.06}s">
-        <div class="card-img-wrap" style="height:140px">${ih}<span class="cat-badge" style="${catBadgeStyle(rp.category)}">${rp.category}</span></div>
-        <div class="card-body">
-          <div class="card-ids">${rp.partNumber?`<div class="card-part">${rp.partNumber}</div>`:''}${rp.bemNumber?`<div class="card-bemi">${rp.bemNumber}</div>`:''}</div>
-          <div class="card-name">${rp.name}</div>
-        </div>
-        <div class="card-footer"><span class="user-badge">${rp.type||rp.category}</span><div class="card-arrow">→</div></div>
-      </div>`;
-    }).join('');
-  }
-  switchPage('detailPage');
-  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('relatedCount').textContent=`${rel.length} parts`;
+  if(!rel.length){document.getElementById('relatedGrid').innerHTML='<div class="no-related">No related parts assigned.</div>';}
+  else{document.getElementById('relatedGrid').innerHTML=rel.map((rp,i)=>{const ih=rp.image?`<img src="${rp.image}" alt="${rp.name}" loading="lazy">`:`<div class="card-no-img" style="height:140px">${getCatIcon(rp.category)}</div>`;return`<div class="product-card" onclick="showDetail(${rp.id})" style="animation-delay:${i*.06}s"><div class="card-img-wrap" style="height:140px">${ih}<span class="cat-badge" style="${catBadgeStyle(rp.category)}">${rp.category}</span></div><div class="card-body"><div class="card-ids">${rp.partNumber?`<div class="card-part">${rp.partNumber}</div>`:''} ${rp.bemNumber?`<div class="card-bemi">${rp.bemNumber}</div>`:''}</div><div class="card-name">${rp.name}</div></div><div class="card-footer"><span class="user-badge">${rp.type||rp.category}</span><div class="card-arrow">→</div></div></div>`;}).join('');}
+  switchPage('detailPage');window.scrollTo({top:0,behavior:'smooth'});
 }
-
-/* ══════════════════════════════
-   NOTES
-══════════════════════════════ */
-async function saveNote(){
-  if(currentProductId===null)return;
-  NOTES[currentProductId]=document.getElementById('noteTextarea').value;
-  await saveNotes(NOTES);
-  const tag=document.getElementById('noteSavedTag');
-  tag.classList.add('show');
-  setTimeout(()=>tag.classList.remove('show'),2500);
-  applyFilters(); // refresh grid to update note dot
-  showToast('📝 Megjegyzés mentve!');
-}
-
-/* ══════════════════════════════
-   ADD / EDIT MODAL
-══════════════════════════════ */
-function openAddModal(){
-  editingId=null;pendingImgData=null;
-  document.getElementById('modalTitle').textContent='Új termék hozzáadása';
-  resetForm();
-  refreshCategorySelect('');
-  initRelatedPicker([]);
-  document.getElementById('relatedSearch').value='';
-  document.getElementById('addModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function openEditModal(id){
-  const p=DB.find(x=>x.id===id);if(!p)return;
-  editingId=id;pendingImgData=null;
-  document.getElementById('modalTitle').textContent='Termék szerkesztése';
-  document.getElementById('fName').value=p.name||'';
-  document.getElementById('fPartNumber').value=p.partNumber||'';
-  document.getElementById('fBemNumber').value=p.bemNumber||'';
-  document.getElementById('fCategory').value=p.category||'';
-  document.getElementById('fType').value=p.type||'';
-  document.getElementById('fDesc').value=p.description||'';
-  document.getElementById('fImgUrl').value=p.image&&!p.image.startsWith('data:')?p.image:'';
-  refreshCategorySelect(p.category||'');
-  initRelatedPicker(p.related||[]);
-  document.getElementById('relatedSearch').value='';
-  if(p.image){
-    document.getElementById('imgUploadArea').classList.add('has-image');
-    document.getElementById('imgPreviewWrap').innerHTML=`<img class="img-preview" src="${p.image}"><div class="img-upload-sub">Kattints a cseréhez</div>`;
-  }else resetImgArea();
-  document.getElementById('addModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
+async function saveNote(){if(currentProductId===null)return;NOTES[currentProductId]=document.getElementById('noteTextarea').value;await saveNotes(NOTES);const tag=document.getElementById('noteSavedTag');tag.classList.add('show');setTimeout(()=>tag.classList.remove('show'),2500);applyFilters();showToast('📝 Note saved!');}
+function openAddModal(){editingId=null;pendingImgData=null;document.getElementById('modalTitle').textContent='Add New Part';resetForm();refreshCategorySelect('');initRelatedPicker([]);document.getElementById('relatedSearch').value='';document.getElementById('addModal').classList.add('open');document.body.style.overflow='hidden';}
+function openEditModal(id){const p=DB.find(x=>x.id===id);if(!p)return;editingId=id;pendingImgData=null;document.getElementById('modalTitle').textContent='Edit Part';document.getElementById('fName').value=p.name||'';document.getElementById('fPartNumber').value=p.partNumber||'';document.getElementById('fBemNumber').value=p.bemNumber||'';document.getElementById('fCategory').value=p.category||'';document.getElementById('fType').value=p.type||'';document.getElementById('fDesc').value=p.description||'';document.getElementById('fImgUrl').value=p.image&&!p.image.startsWith('data:')?p.image:'';refreshCategorySelect(p.category||'');initRelatedPicker(p.related||[]);document.getElementById('relatedSearch').value='';if(p.image){document.getElementById('imgUploadArea').classList.add('has-image');document.getElementById('imgPreviewWrap').innerHTML=`<img class="img-preview" src="${p.image}"><div class="img-upload-sub">Click to replace</div>`;}else resetImgArea();document.getElementById('addModal').classList.add('open');document.body.style.overflow='hidden';}
 function closeAddModal(){document.getElementById('addModal').classList.remove('open');document.body.style.overflow='';}
-function resetForm(){
-  ['fName','fPartNumber','fBemNumber','fType','fDesc','fImgUrl','fRelated'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('fCategory').value='';resetImgArea();
-}
-function resetImgArea(){
-  pendingImgData=null;
-  document.getElementById('imgUploadArea').classList.remove('has-image');
-  document.getElementById('imgPreviewWrap').innerHTML=`<div class="img-upload-icon">📷</div><div class="img-upload-text">Kattints a kép feltöltéséhez</div><div class="img-upload-sub">JPG, PNG, WebP — max. 5MB</div>`;
-  document.getElementById('imgFileInput').value='';
-}
-function handleImgUpload(e){
-  const f=e.target.files[0];if(!f)return;
-  if(f.size>5*1024*1024){showToast('⚠️ Max. 5MB!');return;}
-  const r=new FileReader();
-  r.onload=ev=>{
-    pendingImgData=ev.target.result;
-    document.getElementById('fImgUrl').value='';
-    document.getElementById('imgUploadArea').classList.add('has-image');
-    document.getElementById('imgPreviewWrap').innerHTML=`<img class="img-preview" src="${pendingImgData}"><div class="img-upload-sub">Kattints a cseréhez</div>`;
-  };
-  r.readAsDataURL(f);
-}
+function resetForm(){['fName','fPartNumber','fBemNumber','fType','fDesc','fImgUrl','fRelated'].forEach(id=>document.getElementById(id).value='');document.getElementById('fCategory').value='';resetImgArea();}
+function resetImgArea(){pendingImgData=null;document.getElementById('imgUploadArea').classList.remove('has-image');document.getElementById('imgPreviewWrap').innerHTML=`<div class="img-upload-icon">📷</div><div class="img-upload-text">Click to upload image</div><div class="img-upload-sub">JPG, PNG, WebP — max. 5MB</div>`;document.getElementById('imgFileInput').value='';}
+function handleImgUpload(e){const f=e.target.files[0];if(!f)return;if(f.size>5*1024*1024){showToast('⚠️ Max. 5MB!');return;}const r=new FileReader();r.onload=ev=>{pendingImgData=ev.target.result;document.getElementById('fImgUrl').value='';document.getElementById('imgUploadArea').classList.add('has-image');document.getElementById('imgPreviewWrap').innerHTML=`<img class="img-preview" src="${pendingImgData}"><div class="img-upload-sub">Click to replace</div>`;};r.readAsDataURL(f);}
 function onImgUrlChange(){if(document.getElementById('fImgUrl').value.trim()){pendingImgData=null;resetImgArea();}}
-async function saveProduct(){
-  const name=document.getElementById('fName').value.trim();
-  const cat=document.getElementById('fCategory').value;
-  if(!name){showToast('⚠️ A terméknév kötelező!');return;}
-  if(!cat){showToast('⚠️ A kategória kötelező!');return;}
-  const img=pendingImgData||document.getElementById('fImgUrl').value.trim()||(editingId?(DB.find(x=>x.id===editingId)||{}).image||'':'');
-  const related=selectedRelated.slice();
-  if(editingId!==null){
-    const idx=DB.findIndex(x=>x.id===editingId);
-    if(idx>-1)DB[idx]={...DB[idx],name,partNumber:document.getElementById('fPartNumber').value.trim(),bemNumber:document.getElementById('fBemNumber').value.trim(),category:cat,type:document.getElementById('fType').value.trim(),description:document.getElementById('fDesc').value.trim(),image:img,related};
-    showToast('✅ Termék frissítve!');
-  }else{
-    DB.push({id:nextId(),name,partNumber:document.getElementById('fPartNumber').value.trim(),bemNumber:document.getElementById('fBemNumber').value.trim(),category:cat,type:document.getElementById('fType').value.trim(),description:document.getElementById('fDesc').value.trim(),image:img,related,note:'',addedAt:Date.now(),addedBy:CURRENT_USER});
-    showToast('✅ Termék hozzáadva!');
-  }
-  await saveDB(DB);closeAddModal();applyFilters();
-  if(editingId!==null)showDetail(editingId);
-}
-
-/* ══════════════════════════════
-   DELETE
-══════════════════════════════ */
-function confirmDelete(id){
-  document.getElementById('confirmBox').classList.add('open');
-  document.getElementById('confirmOkBtn').onclick=async()=>{
-    DB=DB.filter(x=>x.id!==id);
-    delete NOTES[id];
-    await saveDB(DB);
-    closeConfirm();showSearch();showToast('🗑 Termék törölve.');applyFilters();
-  };
-}
+async function saveProduct(){const name=document.getElementById('fName').value.trim();const cat=document.getElementById('fCategory').value;if(!name){showToast('⚠️ Part name is required!');return;}if(!cat){showToast('⚠️ Category is required!');return;}const img=pendingImgData||document.getElementById('fImgUrl').value.trim()||(editingId?(DB.find(x=>x.id===editingId)||{}).image||'':'');const related=selectedRelated.slice();if(editingId!==null){const idx=DB.findIndex(x=>x.id===editingId);if(idx>-1)DB[idx]={...DB[idx],name,partNumber:document.getElementById('fPartNumber').value.trim(),bemNumber:document.getElementById('fBemNumber').value.trim(),category:cat,type:document.getElementById('fType').value.trim(),description:document.getElementById('fDesc').value.trim(),image:img,related};showToast('✅ Part updated!');}else{DB.push({id:nextId(),name,partNumber:document.getElementById('fPartNumber').value.trim(),bemNumber:document.getElementById('fBemNumber').value.trim(),category:cat,type:document.getElementById('fType').value.trim(),description:document.getElementById('fDesc').value.trim(),image:img,related,note:'',addedAt:Date.now(),addedBy:CURRENT_USER});showToast('✅ Part added!');}await saveDB(DB);closeAddModal();applyFilters();if(editingId!==null)showDetail(editingId);}
+function confirmDelete(id){document.getElementById('confirmBox').classList.add('open');document.getElementById('confirmOkBtn').onclick=async()=>{DB=DB.filter(x=>x.id!==id);delete NOTES[id];await saveDB(DB);closeConfirm();showSearch();showToast('🗑 Part deleted.');applyFilters();};}
 function closeConfirm(){document.getElementById('confirmBox').classList.remove('open');}
-
-/* ══════════════════════════════
-   PAGE HELPERS
-══════════════════════════════ */
-function switchPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.getElementById('dashBtn').classList.toggle('active',id==='dashPage');
-}
+function switchPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.getElementById('dashBtn').classList.toggle('active',id==='dashPage');}
 function showSearch(){switchPage('searchPage');applyFilters();window.scrollTo({top:0,behavior:'smooth'});}
 function openImgModal(src,alt){document.getElementById('modalImg').src=src;document.getElementById('imgModal').classList.add('open');document.body.style.overflow='hidden';}
 function closeImgModal(){document.getElementById('imgModal').classList.remove('open');document.body.style.overflow='';}
-function copyText(t,l){navigator.clipboard.writeText(t).then(()=>showToast(`✅ ${l} másolva!`));}
+function copyText(t,l){navigator.clipboard.writeText(t).then(()=>showToast(`✅ ${l} copied!`));}
 let toastT;
 function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2800);}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeImgModal();closeAddModal();closeConfirm();closeCatModal();}});
 
-init();
-
-
-
-/* ══════════════════════════════
-   RELATED PICKER
-══════════════════════════════ */
 let selectedRelated=[];
-
-function initRelatedPicker(existingIds){
-  selectedRelated=existingIds?existingIds.slice():[];
-  renderRelatedTags();
-  updateRelatedHidden();
-}
-function openRelatedDropdown(){
-  filterRelatedDropdown();
-  document.getElementById('relatedDropdown').classList.add('open');
-}
-function closeRelatedDropdown(){
-  document.getElementById('relatedDropdown').classList.remove('open');
-}
-function filterRelatedDropdown(){
-  const q=(document.getElementById('relatedSearch').value||'').toLowerCase();
-  const items=DB.filter(p=>{
-    if(p.id===editingId)return false;
-    if(!q)return true;
-    return (p.name||'').toLowerCase().includes(q)||
-           (p.partNumber||'').toLowerCase().includes(q)||
-           String(p.id).includes(q);
-  }).slice(0,30);
-  const dd=document.getElementById('relatedDropdown');
-  if(!items.length){
-    dd.innerHTML='<div style="padding:12px 14px;font-size:.82rem;color:var(--muted)">Nincs találat</div>';
-    return;
-  }
-  dd.innerHTML=items.map(p=>{
-    const isSel=selectedRelated.includes(p.id);
-    return '<div class="related-dropdown-item '+(isSel?'selected':'')+'" onclick="toggleRelated('+p.id+')">'
-      +'<div class="rdi-icon">'+catIcon(p.category)+'</div>'
-      +'<div class="rdi-info">'
-      +'<div class="rdi-name">'+p.name+'</div>'
-      +'<div class="rdi-id">ID: '+p.id+(p.partNumber?' · #'+p.partNumber:'')+'</div>'
-      +'</div>'
-      +(isSel?'<div class="rdi-check">✓</div>':'')
-      +'</div>';
-  }).join('');
-}
-function toggleRelated(id){
-  const idx=selectedRelated.indexOf(id);
-  if(idx>-1)selectedRelated.splice(idx,1);
-  else selectedRelated.push(id);
-  renderRelatedTags();
-  updateRelatedHidden();
-  filterRelatedDropdown();
-}
-function renderRelatedTags(){
-  const wrap=document.getElementById('relatedTags');
-  if(!wrap)return;
-  if(!selectedRelated.length){
-    wrap.innerHTML='<span style="font-size:.72rem;color:var(--muted)">Még nincs kapcsolódó termék kiválasztva</span>';
-    return;
-  }
-  wrap.innerHTML=selectedRelated.map(id=>{
-    const p=DB.find(x=>x.id===id);
-    if(!p)return'';
-    return '<div class="related-tag">'+catIcon(p.category)+' '+p.name
-      +' <span class="related-tag-remove" onclick="toggleRelated('+id+')">✕</span></div>';
-  }).join('');
-}
-function updateRelatedHidden(){
-  document.getElementById('fRelated').value=selectedRelated.join(',');
-}
-
-/* ══════════════════════════════
-   CATEGORY MANAGER
-══════════════════════════════ */
-function refreshCategorySelect(savedVal){
-  const sel=document.getElementById('fCategory');
-  const cur=savedVal||sel.value;
-  sel.innerHTML='<option value="">— Válassz —</option>'+
-    CAT_LIST.map(c=>`<option value="${c.name}" ${c.name===cur?'selected':''}>${c.icon} ${c.name}</option>`).join('');
-}
-
-function openCatModal(){
-  renderCatManagerList();
-  renderColorGrid();
-  renderIconGrid();
-  document.getElementById('newCatName').value='';
-  document.getElementById('catModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeCatModal(){
-  document.getElementById('catModal').classList.remove('open');
-  document.body.style.overflow='';
-}
-
-function renderCatManagerList(){
-  const list=document.getElementById('catManagerList');
-  if(!CAT_LIST.length){list.innerHTML='<div style="color:var(--muted);font-size:.85rem;text-align:center;padding:20px">Nincs kategória</div>';return;}
-  list.innerHTML=CAT_LIST.map((c,i)=>{
-    const count=DB.filter(p=>p.category===c.name).length;
-    const canDelete=count===0;
-    return `<div class="cat-manager-item">
-      <div class="cat-color-dot" style="background:${c.color}"></div>
-      <div class="cat-icon-badge">${c.icon}</div>
-      <div class="cat-manager-name">${c.name}</div>
-      <div class="cat-manager-count">${count} termék</div>
-      <button class="cat-delete-btn" onclick="deleteCategory(${i})" ${canDelete?'':'disabled'} title="${canDelete?'Törlés':'Nem törölhető, van benne termék'}">✕</button>
-    </div>`;
-  }).join('');
-}
-
-function renderColorGrid(){
-  document.getElementById('catColorGrid').innerHTML=PALETTE.map(col=>`
-    <div class="cat-color-swatch ${col===newCatColor?'selected':''}"
-      style="background:${col}" onclick="selectCatColor('${col}')"></div>`).join('');
-}
-function renderIconGrid(){
-  document.getElementById('catIconGrid').innerHTML=ICONS.map(ic=>`
-    <div class="cat-icon-opt ${ic===newCatIcon?'selected':''}" onclick="selectCatIcon('${ic}')">${ic}</div>`).join('');
-}
+function initRelatedPicker(existingIds){selectedRelated=existingIds?existingIds.slice():[];renderRelatedTags();updateRelatedHidden();}
+function openRelatedDropdown(){filterRelatedDropdown();document.getElementById('relatedDropdown').classList.add('open');}
+function closeRelatedDropdown(){document.getElementById('relatedDropdown').classList.remove('open');}
+function filterRelatedDropdown(){const q=(document.getElementById('relatedSearch').value||'').toLowerCase();const items=DB.filter(p=>{if(p.id===editingId)return false;if(!q)return true;return(p.name||'').toLowerCase().includes(q)||(p.partNumber||'').toLowerCase().includes(q)||String(p.id).includes(q);}).slice(0,30);const dd=document.getElementById('relatedDropdown');if(!items.length){dd.innerHTML='<div style="padding:12px 14px;font-size:.82rem;color:var(--muted)">No results</div>';return;}dd.innerHTML=items.map(p=>{const isSel=selectedRelated.includes(p.id);return'<div class="related-dropdown-item '+(isSel?'selected':'')+'" onclick="toggleRelated('+p.id+')">'+'<div class="rdi-icon">'+getCatIcon(p.category)+'</div>'+'<div class="rdi-info">'+'<div class="rdi-name">'+p.name+'</div>'+'<div class="rdi-id">ID: '+p.id+(p.partNumber?' · #'+p.partNumber:'')+'</div>'+'</div>'+(isSel?'<div class="rdi-check">✓</div>':'')+'</div>';}).join('');}
+function toggleRelated(id){const idx=selectedRelated.indexOf(id);if(idx>-1)selectedRelated.splice(idx,1);else selectedRelated.push(id);renderRelatedTags();updateRelatedHidden();filterRelatedDropdown();}
+function renderRelatedTags(){const wrap=document.getElementById('relatedTags');if(!wrap)return;if(!selectedRelated.length){wrap.innerHTML='<span style="font-size:.72rem;color:var(--muted)">No related parts selected yet</span>';return;}wrap.innerHTML=selectedRelated.map(id=>{const p=DB.find(x=>x.id===id);if(!p)return'';return'<div class="related-tag">'+getCatIcon(p.category)+' '+p.name+'<span class="related-tag-remove" onclick="toggleRelated('+id+')">✕</span></div>';}).join('');}
+function updateRelatedHidden(){document.getElementById('fRelated').value=selectedRelated.join(',');}
+function refreshCategorySelect(savedVal){const sel=document.getElementById('fCategory');const cur=savedVal||sel.value;sel.innerHTML='<option value="">— Select —</option>'+CAT_LIST.map(c=>`<option value="${c.name}" ${c.name===cur?'selected':''}>${c.icon} ${c.name}</option>`).join('');}
+function openCatModal(){renderCatManagerList();renderColorGrid();renderIconGrid();document.getElementById('newCatName').value='';document.getElementById('catModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeCatModal(){document.getElementById('catModal').classList.remove('open');document.body.style.overflow='';}
+function renderCatManagerList(){const list=document.getElementById('catManagerList');if(!CAT_LIST.length){list.innerHTML='<div style="color:var(--muted);font-size:.85rem;text-align:center;padding:20px">No categories</div>';return;}list.innerHTML=CAT_LIST.map((c,i)=>{const count=DB.filter(p=>p.category===c.name).length;const canDelete=count===0;return`<div class="cat-manager-item"><div class="cat-color-dot" style="background:${c.color}"></div><div class="cat-icon-badge">${c.icon}</div><div class="cat-manager-name">${c.name}</div><div class="cat-manager-count">${count} parts</div><button class="cat-delete-btn" onclick="deleteCategory(${i})" ${canDelete?'':'disabled'}>✕</button></div>`;}).join('');}
+function renderColorGrid(){document.getElementById('catColorGrid').innerHTML=PALETTE.map(col=>`<div class="cat-color-swatch ${col===newCatColor?'selected':''}" style="background:${col}" onclick="selectCatColor('${col}')"></div>`).join('');}
+function renderIconGrid(){document.getElementById('catIconGrid').innerHTML=ICONS.map(ic=>`<div class="cat-icon-opt ${ic===newCatIcon?'selected':''}" onclick="selectCatIcon('${ic}')">${ic}</div>`).join('');}
 function selectCatColor(col){newCatColor=col;renderColorGrid();}
 function selectCatIcon(ic){newCatIcon=ic;renderIconGrid();}
+function addCategory(){const name=document.getElementById('newCatName').value.trim().toUpperCase();if(!name){showToast('⚠️ Enter a name!');return;}if(name.length>20){showToast('⚠️ Max. 20 characters!');return;}if(CAT_LIST.find(c=>c.name===name)){showToast('⚠️ Category already exists!');return;}CAT_LIST.push({name,color:newCatColor,icon:newCatIcon});saveCats(CAT_LIST);document.getElementById('newCatName').value='';renderCatManagerList();refreshCategorySelect();buildTabs();showToast(`✅ "${name}" category added!`);}
+function deleteCategory(idx){const cat=CAT_LIST[idx];const count=DB.filter(p=>p.category===cat.name).length;if(count>0){showToast('⚠️ Cannot delete — category has parts!');return;}CAT_LIST.splice(idx,1);saveCats(CAT_LIST);if(activeTab===cat.name){activeTab='All';}renderCatManagerList();refreshCategorySelect();buildTabs();applyFilters();showToast(`🗑 "${cat.name}" deleted.`);}
 
-function addCategory(){
-  const name=document.getElementById('newCatName').value.trim().toUpperCase();
-  if(!name){showToast('⚠️ Adj meg egy nevet!');return;}
-  if(name.length>20){showToast('⚠️ Max. 20 karakter!');return;}
-  if(CAT_LIST.find(c=>c.name===name)){showToast('⚠️ Ez a kategória már létezik!');return;}
-  CAT_LIST.push({name,color:newCatColor,icon:newCatIcon});
-  saveCats(CAT_LIST);
-  document.getElementById('newCatName').value='';
-  renderCatManagerList();
-  refreshCategorySelect();
-  buildTabs();
-  showToast(`✅ "${name}" kategória hozzáadva!`);
-}
-
-function deleteCategory(idx){
-  const cat=CAT_LIST[idx];
-  const count=DB.filter(p=>p.category===cat.name).length;
-  if(count>0){showToast('⚠️ Nem törölhető, van benne termék!');return;}
-  CAT_LIST.splice(idx,1);
-  saveCats(CAT_LIST);
-  if(activeTab===cat.name){activeTab='Összes';}
-  renderCatManagerList();
-  refreshCategorySelect();
-  buildTabs();
-  applyFilters();
-  showToast(`🗑 "${cat.name}" törölve.`);
-}
-
-/* ══════════════════════════════
-   AUTHOR TAB
-══════════════════════════════ */
-function toggleAuthorTab(){
-  document.getElementById('author-tab').classList.toggle('collapsed');
-}
-
+init();
 </script>
-
-<!-- AUTHOR CREDIT TAB -->
-<div id="author-tab" class="collapsed">
-  <div class="author-tab-header" onclick="toggleAuthorTab()">
-    <div class="author-avatar">VV</div>
-    <div>
-      <div class="author-tab-name">rotkiv</div>
-      <div class="author-tab-sub">rotkiv</div>
-    </div>
-    <div class="author-chevron">▲</div>
-  </div>
-  <div class="author-tab-body">
-    <div class="author-body-inner">
-      <div class="author-row">
-        <div class="author-icon">👤</div>
-        <div class="author-detail"><strong>rotkiv</strong> — </div>
-      </div>
-      <div class="author-row">
-        <div class="author-icon">🏭</div>
-        <div class="author-detail"> · <strong>TH-312</strong></div>
-      </div>
-      <div class="author-divider"></div>
-      <div class="author-row">
-        <div class="author-icon">✉️</div>
-        <div class="author-detail">
-          <a class="author-email" href="mailto:rotkiv">rotkiv</a>
-        </div>
-      </div>
-      <div class="author-divider"></div>
-      <div class="author-built-with">Fejlesztette: <span>rotkiv</span> &nbsp;·&nbsp; Nexora v1.0</div>
-    </div>
-  </div>
-</div>
-
-<!-- CATEGORY MANAGER MODAL -->
-<div class="modal-overlay" id="catModal">
-  <div class="add-modal">
-    <div class="modal-header">
-      <div class="modal-title">🏷️ Kategória kezelő</div>
-      <button class="modal-close-btn" onclick="closeCatModal()">✕</button>
-    </div>
-    <div class="cat-manager-list" id="catManagerList"></div>
-    <div class="cat-add-section">
-      <div class="cat-add-title">Új kategória hozzáadása</div>
-      <div class="cat-add-row">
-        <div class="form-group">
-          <label class="form-label">Kategória neve *</label>
-          <input class="form-input" id="newCatName" placeholder="pl. KUKA, ABB, VISION…" maxlength="20">
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
-        <div class="cat-color-picker-wrap">
-          <label class="form-label">Szín</label>
-          <div class="cat-color-grid" id="catColorGrid"></div>
-        </div>
-        <div class="cat-icon-picker">
-          <label class="form-label">Ikon</label>
-          <div class="cat-icon-grid" id="catIconGrid"></div>
-        </div>
-      </div>
-      <div style="margin-top:16px;display:flex;justify-content:flex-end">
-        <button class="btn-cat-add" onclick="addCategory()">➕ Kategória hozzáadása</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>
